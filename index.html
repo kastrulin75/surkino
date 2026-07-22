@@ -1,0 +1,139 @@
+﻿<!doctype html>
+<html lang="ru" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta
+      name="description"
+      content="SURKINO — афиша кино в Сургуте. Расписание Синема Парк, Каро Фильм, Мир, Вершина, Галактика."
+    />
+    <title>SURKINO — афиша кино в Сургуте</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script>
+      (function () {
+        try {
+          if (sessionStorage.getItem("surkino-intro-done")) return;
+          var internal = false;
+          try {
+            internal =
+              document.referrer &&
+              new URL(document.referrer).origin === location.origin;
+          } catch (e) {}
+          if (internal) {
+            sessionStorage.setItem("surkino-intro-done", "1");
+            return;
+          }
+          document.documentElement.classList.add("intro-pending");
+        } catch (e) {
+          document.documentElement.classList.add("intro-pending");
+        }
+      })();
+    </script>
+    <script>
+      (function () {
+        if (!document.documentElement.classList.contains("intro-pending")) {
+          document.documentElement.classList.add("boot-pending");
+        }
+      })();
+    </script>
+  </head>
+  <body class="page-home">
+    <div id="intro" class="intro" hidden aria-hidden="true">
+      <div class="intro-screen">
+        <p class="intro-word">SURKINO</p>
+      </div>
+    </div>
+
+    <header id="site-header" class="site-header site-reveal"></header>
+
+    <main class="site-reveal">
+      <section class="hero">
+        <div class="hero-stage container">
+          <div class="hero-glow hero-glow-a" aria-hidden="true"></div>
+          <div class="hero-glow hero-glow-b" aria-hidden="true"></div>
+          <div class="hero-glow hero-glow-c" aria-hidden="true"></div>
+
+          <div class="hero-content">
+            <p class="eyebrow">Сургут · кинопрокат</p>
+            <h1>SURKINO</h1>
+            <p class="hero-lead">
+              Добро пожаловать. Расписание всех кинотеатров города — в одном месте.
+            </p>
+            <div class="hero-actions">
+              <a href="schedule.html" class="btn btn-primary">Смотреть расписание</a>
+              <a href="films.html" class="btn btn-glass">Все фильмы</a>
+            </div>
+            <div class="hero-stats" id="hero-stats"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2>Сегодня в городе</h2>
+              <p>Выберите день — покажем сеансы по всем площадкам.</p>
+            </div>
+            <a href="schedule.html" class="btn btn-glass btn-sm">Полное расписание</a>
+          </div>
+          <div class="date-strip" id="date-strip" role="tablist" aria-label="Дата сеансов"></div>
+          <div class="schedule-list" id="schedule-list" style="margin-top: 1.25rem"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2>В прокате</h2>
+              <p>Классика и новинки — 30 лент с постерами.</p>
+            </div>
+            <a href="films.html" class="btn btn-glass btn-sm">Каталог</a>
+          </div>
+          <div class="film-grid" id="films-now"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2>Кинотеатры</h2>
+              <p>Синема Парк, Каро, Мир, Вершина и Галактика.</p>
+            </div>
+            <a href="cinemas.html" class="btn btn-glass btn-sm">Все площадки</a>
+          </div>
+          <div class="cinema-grid" id="cinemas-grid"></div>
+        </div>
+      </section>
+
+      <section class="section" id="soon-section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2>Скоро на экране</h2>
+              <p>Премьеры ближайших недель.</p>
+            </div>
+          </div>
+          <div class="film-grid" id="films-soon"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="site-footer" class="site-footer site-reveal"></footer>
+
+    <script src="js/transitions.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/schedule.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/home.js"></script>
+  </body>
+</html>

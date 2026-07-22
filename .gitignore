@@ -1,0 +1,26 @@
+# Dependencies / leftovers
+node_modules/
+package-lock.json
+package.json
+dist/
+.vite/
+*.local
+
+# OS / editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs / cache
+*.log
+.cache/
+.tmp/
+.temp/
+
+# Env
+.env
+.env.*
